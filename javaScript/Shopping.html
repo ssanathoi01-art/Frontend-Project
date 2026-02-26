@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+
+    <nav class="flex py-4 px-3 justify-evenly sticky top-0 z-20 items-center
+     bg-gradient-to-br from-[#544f4f] via-[#0f1111] to-[#b2b2d5] text-white">
+
+        <div class="flex justify-center items-center gap-1 font-bold">
+            <img class="h-15 rounded-t-[20px] rounded-tr-[20px] rounded-b-[20px]
+            drop-shadow-lg drop-shadow-blue-400 hover:scale-105
+            w-15" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTclf7OukV_-yvk8f-7IJCoYc8PK3K7iaA9jA&s"
+                alt="">
+            <h1 class="text-3xl md:text-xl sm:lg 
+           font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 bg-clip-text text-transparent p-4 rounded-lg
+            ">BuyNest</h1>
+        </div>
+
+        <section class="hidden lg:flex">
+
+            <div class="relative px-3 space-x-6 flex items-center rounded-full bg-green-300">
+                <input type="text" class="text-blue-600 font-semibold" placeholder="Search BarNest.in">
+                <i class="fa-solid fa-magnifying-glass absolute right-2"></i>
+            </div>
+
+
+            <div class="flex justify-evenly ml-5  items-center gap-7 font-semibold">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">🛒 Cart</a>
+                <a href="#"><i class=" text-4xl hover:scale-105 fa-solid fa-circle-user"></i>Login/Account</a>
+            </div>
+
+        </section>
+
+        <div onclick="OpenClose()" class="hidden max-lg:block">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <aside id="sidebar" class="w-30 h-screen bg-[#373737]
+        grid p-4
+        transition-all duration-700 top-0 ease-in-out
+        fixed z-20 -left-60">
+            <a class="hover:underline" href="#">About</a>
+            <a class="hover:underline" href="#">Contact</a>
+            <a class="hover:underline" href="productPage.html">🛒 Cart</a>
+            <a class="hover:underline" href="#"><i class="fa-solid fa-circle-user"></i>Login/Account</a>
+        </aside>
+
+    </nav>
+
+
+    <main class="bg-[#efecec]">
+
+        <section>
+            <div class="relative w-full max-w-full top-0 mx-auto">
+                <!-- Images -->
+                <div id="carousel" class="overflow-hidden relative rounded-lg">
+                    <img src="https://img.freepik.com/premium-photo/home-appliances-gas-cooker-tv-cinema-refrigerator-air-conditioner-microwave_505080-1032.jpg?semt=ais_user_personalization&w=740&q=80"
+                        class="w-full h-64 object-fill ">
+                    <img src="https://www.pcbasic.com/Uploads/files/20250427/63a23eff43083c69fd19c241eeb1f59f.webp"
+                        class="w-full h-64 object-fill hidden">
+                    <img src="https://exoticcars.ae/uploads/blog-images/329/img.png"
+                        class="w-full h-64 object-fill hidden">
+                </div>
+
+                <!-- Buttons -->
+                <button onclick="prevSlide()"
+                    class="absolute top-1/2 left-2 -translate-y-1/2  text-white px-2 py-1 rounded"><i
+                        class=" rotate-90 text-3xl drop-shadow-lg bg-yellow-400 p-2 rounded-full hover:bg-transparent border border-gray-300 drop-shadow-blue-500 text-orange-400 fa-solid fa-angles-down"></i></button>
+                <button onclick="nextSlide()"
+                    class="absolute top-1/2 right-2 -translate-y-1/2 text-white px-2 py-1 rounded"><i
+                        class="-rotate-90 drop-shadow-lg bg-yellow-400 p-2 rounded-full hover:bg-transparent border border-gray-300 drop-shadow-blue-500 text-3xl text-orange-400 fa-solid fa-angles-down"></i></button>
+            </div>
+        </section>
+
+
+
+        <h1 class="text-orange-400 font-serif text-xl ml-10 mt-5">Top Categories Items:</h1>
+
+        <section id="topContainer" class="px-5 flex gap-2 overflow-x-scroll max-w-[90%] mx-auto scroll-smooth">
+            <!-- <div
+            class="w-[280px] h-[200px] bg-green-100 shadow-[0_0_3px_rgba(0,0,0,0.3)] flex flex-col p-1 rounded-[5px] gap-3 flex-shrink-0">
+            <div>
+                <img src="https://media.istockphoto.com/id/1174598609/photo/set-of-contemporary-house-appliances-isolated-on-white.jpg?s=612x612&w=0&k=20&c=bBMILbCpLkhIxbL7sAAXaFOaFaSXFCt80ccHgl7iiWM="
+                    alt="" class="h-30 rounded-sm w-full ">
+            </div>
+
+            <h1 class="px-1 text-sm font-bold text-pink-500">Hello! This is a new Product!</h1>
+        </div> -->
+
+        </section>
+
+
+        <h1 class="text-orange-400 font-serif text-xl ml-10 mt-7">Especially for you</h1>
+
+        <section id="midContainer" class="px-5 flex gap-2 overflow-x-scroll max-w-[90%] mx-auto scroll-smooth">
+            <!-- <div
+            class="max-w-80 h-60 bg-green-100 shadow-[0_0_3px_rgba(0,0,0,0.3)] flex flex-col p-1 rounded-[5px] gap-3 flex-shrink-0">
+            <div>
+                <img src="https://media.istockphoto.com/id/1174598609/photo/set-of-contemporary-house-appliances-isolated-on-white.jpg?s=612x612&w=0&k=20&c=bBMILbCpLkhIxbL7sAAXaFOaFaSXFCt80ccHgl7iiWM="
+                    alt="" class="h-45 rounded-sm w-full ">
+            </div>
+
+            <h1 class="px-1 text-sm font-bold text-pink-500">Upto 60% discount</h1>
+        </div> -->
+
+        </section>
+
+
+        <!-- herosection -->
+
+        <div class="mt-10 p-10 ">
+            <img src="https://img.freepik.com/premium-vector/discount-special-offer-word-concept-vector-illustration-with-lines-modern-futuristic-3d-style_737072-268.jpg"
+                alt="" class="w-full h-70">
+        </div>
+
+        <section id="heroContainer" class="px-5  grid p-10 max-sm:grid-cols-1 max-[1280px]:grid-cols-4  
+    max-[1240px]:grid-cols-3 max-[923px]:grid-cols-2 
+     max-[1500px]:grid-cols-4 max-[1890px]:grid-cols-5
+     gap-10 overflow-x-scroll place-items-center max-w-[95%] mx-auto scroll-smooth">
+            <!-- <div
+            class="w-[280px] h-[250px] bg-green-100 shadow-[0_0_3px_rgba(0,0,0,0.3)] flex flex-col p-1 rounded-[5px] gap-3 flex-shrink-0">
+            <div>
+                <img src="https://media.istockphoto.com/id/1174598609/photo/set-of-contemporary-house-appliances-isolated-on-white.jpg?s=612x612&w=0&k=20&c=bBMILbCpLkhIxbL7sAAXaFOaFaSXFCt80ccHgl7iiWM="
+                    alt="" class="h-30 rounded-sm w-full ">
+            </div>
+
+            <div>
+                <p class="text-green-600 line-through">₹1500</p>
+                <p class="text-pink-400">₹1200</p>
+            </div>
+        </div> -->
+
+        </section>
+
+
+
+        <!-- herosection2 -->
+
+        <section
+            class="grid grid-cols-1 max-w-[90%] mx-auto lg:grid-cols-2 gap-5 max-lg:place-items-center px-5  my-10 ">
+            <div class="space-y-10 p-5 ">
+                <img class="max-w-120 transition-transform duration-300 ease-linear hover:scale-105 max-[1100px]:max-w-110 max-[1024px]:max-w-full max-[550px]:max-h-60 rounded-lg h-100"
+                    src="https://media-assets.hyperinvento.com/companies/c31a99fe-fc32-4275-a453-18c2131fef39/others/others/files/536f098cf7664a0f8676d8709fa479a3-other-other.png"
+                    alt="">
+                <img class="max-w-120 transition-transform duration-300 ease-linear hover:scale-105 max-[1100px]:max-w-110 max-[1024px]:max-w-full max-[550px]:max-h-60 rounded-lg h-100"
+                    src="https://media-assets.hyperinvento.com/companies/c31a99fe-fc32-4275-a453-18c2131fef39/others/others/files/6b78af3e8d4d4354aa603e8fadcac7b9-other-other.jpg"
+                    alt="">
+            </div>
+            <div class="space-y-10 p-5">
+                <img class="max-w-120 transition-transform duration-300 ease-linear hover:scale-105 max-[1100px]:max-w-110 max-[1024px]:max-w-full max-[550px]:max-h-60 rounded-lg h-100"
+                    src="https://media-assets.hyperinvento.com/companies/c31a99fe-fc32-4275-a453-18c2131fef39/others/others/files/b9c6c99f2a6b44c9a2473a1fb03b4798-other-other.webp">
+                <img class="max-w-120 transition-transform duration-300 ease-linear hover:scale-105 max-[1100px]:max-w-110 max-[1024px]:max-w-full max-[550px]:max-h-60 rounded-lg h-100"
+                    src="https://media-assets.hyperinvento.com/companies/c31a99fe-fc32-4275-a453-18c2131fef39/others/others/files/ebb145e1c47e49e9941c2c7a8dfedee7-other-other.webp">
+            </div>
+        </section>
+
+        <!--   next trending Laptop design -->
+
+        <section id="macBook" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-10 m-20 gap-4 
+             place-items-center
+             ">
+
+            <main class="w-50 p-2 bg-sky-100 rounded-lg">
+                <div class="w-full bg-gray-400 overflow-hidden">
+                    <img class="hover:scale-110 transform duration-500 ease-in-out"
+                        src="https://media-assets.hyperinvento.com/companies/c31a99fe-fc32-4275-a453-18c2131fef39/products/5c85f197-8612-44be-ba0a-d4df4d2155d1/featureds/images/4eb5199fd9524e78953b9cdf512bb9e6-product-featured-lg.jpg"
+                        alt="">
+                </div>
+
+                <h1 class="mx-2 font-bold">Apply 2025 MacBook Pro Laptop with M5 chip,...</h1>
+
+                <div class="flex p-3 gap-3">
+                    <p class="text-[#373737] line-through">₹12345</p>
+                    <p class="text-yellow-500 font-semibold">₹12333</p>
+                </div>
+
+            </main>
+        </section>
+
+
+        <!-- footer section -->
+
+
+        <h1 class="mt-10 text-2xl pl-10 font-bold text-yellow-800 ">Trending Now!</h1>
+
+        <section id="footerContainer" class="px-5 mt-5 flex gap-2 overflow-x-scroll max-w-[90%] mx-auto scroll-smooth">
+            <!-- <div
+            class="w-70 mt-10 hover:scale-105 transition-transform duration-400 ease-in-out  h-80 bg-green-100 shadow-[0_0_3px_rgba(0,0,0,0.3)] flex flex-col p-1 rounded-[5px] gap-3 flex-shrink-0">
+            <div>
+                <img src="https://media-assets.hyperinvento.com/companies/c31a99fe-fc32-4275-a453-18c2131fef39/products/5c85f197-8612-44be-ba0a-d4df4d2155d1/featureds/images/4eb5199fd9524e78953b9cdf512bb9e6-product-featured-lg.jpg" alt="" class="h-45 rounded-sm w-full ">
+            </div>
+
+            <h1 class="px-1 text-sm font-bold text-pink-500">Apple iPhone 16 128 GB, Pink</h1>
+            <div class="flex gap-2 items-center">
+                <p class="text-lg">₹56789</p>
+                <p class="text-xs text-green-500">7% OFF</p>
+            </div>
+
+            <h1 class="text-sm text-pink-400">MRP <span class="line-through">₹43535</span></h1>
+
+        </div> -->
+
+
+        </section>
+
+
+        <!--  -->
+
+        <div class="my-10  flex justify-center items-center flex-col">
+            <h1 class="text-3xl text-center h-8 font-serif">Discover Leading Brands</h1>
+            <p class="text-center text-sm text-blue-900">Explore a curated selection of leading brands, <br> where
+                innovation meets quality, only at Vijay Sales. </p>
+
+
+        </div>
+
+        <section
+            class="grid grid-cols-2 max-[320px]:px-10 sm:grid-cols-4 place-items-center gap-5 px-20 my-10 lg:grid-cols-8">
+            <div class="h-20 hover:scale-105 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 rounded-full"
+                    src="https://www.vijaysales.com/_jcr_content/root/container/container/vscontainer_1477503163/vscontainer/image_2104681574.coreimg.svg/1740119923960/vise.svg"
+                    alt=""></div>
+            <div class="h-20 hover:scale-105 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 rounded-full"
+                    src="https://www.vijaysales.com/_jcr_content/root/container/container/vscontainer_1477503163/vscontainer/image_1540858142.coreimg.svg/1740119910864/apple.svg"
+                    alt=""></div>
+            <div class="h-20 hover:scale-105 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 rounded-full"
+                    src="https://www.vijaysales.com/_jcr_content/root/container/container/vscontainer_1477503163/vscontainer/image_17300457.coreimg.svg/1739967292053/lg.svg"
+                    alt=""></div>
+            <div class="h-20 hover:scale-105 px-3 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 rounded-full"
+                    src="https://www.vijaysales.com/_jcr_content/root/container/container/vscontainer_1477503163/vscontainer/image_350353521.coreimg.svg/1738242805037/sony.svg"
+                    alt=""></div>
+            <div class="h-20 hover:scale-105 px-3 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 rounded-full"
+                    src="https://www.vijaysales.com/_jcr_content/root/container/container/vscontainer_1477503163/vscontainer/image.coreimg.svg/1729341766127/whirpool.svg"
+                    alt=""></div>
+            <div class="h-20 hover:scale-105 px-3 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 rounded-full"
+                    src="https://www.vijaysales.com/_jcr_content/root/container/container/vscontainer_1477503163/vscontainer/image_1856884432.coreimg.svg/1738242844106/oneplusdesktop.svg"
+                    alt=""></div>
+            <div class="h-20 hover:scale-105 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 rounded-full"
+                    src="https://www.vijaysales.com/_jcr_content/root/container/container/vscontainer_1477503163/vscontainer/image_744973572.coreimg.svg/1740119935367/mi.svg"
+                    alt=""></div>
+            <div class="h-20 overflow-hidden hover:scale-105 w-20 bg-green-200 rounded-full"><img class="h-20 w-20 
+                
+                rounded-full"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6f4thC2A4DalM-SgyOPhZaaec04PwADttAQ&s"
+                    alt=""></div>
+
+        </section>
+
+
+        <div class="flex justify-center m-10 ">
+            <button
+                class="px-5 text-center h-15 font-semibold text-lg hover:bg-transparent hover:text-blue-500 hover:border rounded-full w-fit text-white bg-[#373737]">Shop
+                Top Brands</button>
+        </div>
+
+
+        <section class="grid place-items-center text-center lg:grid-cols-3 md:grid-cols-2 grid-cols-1 
+    px-10 py-15 space-x-8 space-y-8 items-center">
+            <div class="flex justify-center items-center gap-2 max-w-88">
+                <h1 class="text-6xl text-[#9a8343] font-serif">160+</h1>
+                <p class="text-violet-500 text-xl font-serif">Discover 160+ Showrooms at PrimeLocations Near You. </p>
+            </div>
+            <div class="flex justify-center items-center max-w-88 gap-2">
+                <h1 class="text-6xl text-[#9a8343] font-serif">10M+</h1>
+                <p class="text-violet-500">Happy Customers </p>
+            </div>
+            <div class="flex justify-center items-center max-w-88 gap-2">
+                <h1 class="text-6xl text-[#9a8343] font-serif">1000+</h1>
+                <p class="text-violet-500">Delivering to1000+ cities across</p>
+            </div>
+
+        </section>
+
+        <!--  -->
+
+
+
+        <section class="grid px-7 my-10 place-items-center gap-7 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+            <div class="max-w-70 px-7">
+
+                <img class=""
+                    src="https://www.vijaysales.com/content/experience-fragments/vijaysaleswebsite/in/en/footer/footer-sections/master/_jcr_content/root/container/teaser_copy.coreimg.svg/1723896915606/warranty-filled.svg"
+                    alt="">
+                <h1 class="font-bold">Extended Warranty</h1>
+                <p class="text-indigo-700">Got a question? Look no further calls us.</p>
+            </div>
+            <div class="max-w-70 px-7">
+                <img src="https://www.vijaysales.com/content/experience-fragments/vijaysaleswebsite/in/en/footer/footer-sections/master/_jcr_content/root/container/teaser_copy_1839104030.coreimg.svg/1723896966454/package.svg"
+                    alt="">
+                <h1 class="font-bold">Free Delivery</h1>
+                <p class="text-indigo-700">Available on all our products.</p>
+            </div>
+            <div class="max-w-70 px-7">
+                <img src="https://www.vijaysales.com/content/experience-fragments/vijaysaleswebsite/in/en/footer/footer-sections/master/_jcr_content/root/container/teaser_copy_1326192038.coreimg.svg/1770796693190/delivery.svg"
+                    alt="">
+                <h1 class="font-bold">Trusted Tech Delivered Fast</h1>
+                <p class="text-indigo-700">Now in 90 Minutes</p>
+            </div>
+
+            <div class="max-w-70 px-7">
+                <img src="https://www.vijaysales.com/content/experience-fragments/vijaysaleswebsite/in/en/footer/footer-sections/master/_jcr_content/root/container/teaser.coreimg.svg/1723897084039/easy-installment.svg"
+                    alt="">
+                <h1 class="font-bold">Easy Installment</h1>
+                <p class="text-indigo-700">Pay for your purchase in easy EMIs.</p>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-- Footer part -->
+
+    <footer class="py-10  text-white bg-[#000000]">
+        <section class="max-w-[90%] mx-auto px-7 py-10 flex-wrap flex
+        
+        justify-between gap-20">
+            <div class="grid max-w-120 space-y-5">
+                <h1 class="text-xl ">Stay in touch with us get poduct updates, offers, discounts directly to your inbox
+                </h1>
+                <input type="email" placeholder="Enter Email Address" class="border">
+                <div class="flex gap-2">
+                    <input type="checkbox">
+                    <p class="text-sm">by selecting this option you agree with our privacy policy and Terms & Conditions
+                    </p>
+                </div>
+
+                <button
+                    class="py-5 mt-10 text-blue-600 hover:text-white hover:bg-transparent hover:border h-20 text-3xl bg-[#eabc3a] rounded-full font-bold">Subscribe</button>
+            </div>
+            <!--  -->
+            <div class="grid max-w-120 space-y-5">
+                <h1 class="text-3xl font-semibold">
+                    Categories
+                </h1>
+
+                <ul class="text-lg">
+                    <li class="hover:underline">Television</li>
+                    <li class="hover:underline">Smartphone</li>
+                    <li class="hover:underline">Laptops</li>
+                    <li class="hover:underline">Washing Machines</li>
+                    <li class="hover:underline">Party Speakers</li>
+                    <li class="hover:underline">Gaming</li>
+                </ul>
+
+            </div>
+            <!--  -->
+            <div class="grid max-w-120 space-y-5">
+                <h1 class="text-3xl font-semibold">
+                    Categories
+                </h1>
+
+                <ul class="text-lg">
+                    <li class="hover:underline">Television</li>
+                    <li class="hover:underline">Smartphone</li>
+                    <li class="hover:underline">Laptops</li>
+                    <li class="hover:underline">Washing Machines</li>
+                    <li class="hover:underline">Party Speakers</li>
+                    <li class="hover:underline">Gaming</li>
+                </ul>
+
+            </div>
+            <!--  -->
+            <div class="grid max-w-120 space-y-5">
+                <h1 class="text-3xl font-semibold">
+                    Categories
+                </h1>
+
+                <ul class="text-lg">
+                    <li class="hover:underline">Television</li>
+                    <li class="hover:underline">Smartphone</li>
+                    <li class="hover:underline">Laptops</li>
+                    <li class="hover:underline">Washing Machines</li>
+                    <li class="hover:underline">Party Speakers</li>
+                    <li class="hover:underline">Gaming</li>
+                </ul>
+
+            </div>
+        </section>
+
+        <hr class="max-w-[70%] mx-auto my-10">
+
+        <h1 class="text-3xl ml-10 mb-5 max-[900px]:text-xl
+        ">Follow us on Socials:</h1>
+        <section class="flex px-10 max-[510px]:flex-col space-y-4 justify-around items-center">
+            <div class="grid max-[900px]:grid-cols-3 max-[630px]:grid-cols-2 grid-cols-6 gap-5 text-3xl ">
+                <a href="https://wa.me/8974284157?text=Hi%2C%20how%20are%20you%3F" target="_blank">
+                    <i class="hover:scale-105 fa-brands fa-whatsapp"></i>
+                </a>
+                <a href=""><i class="hover:scale-105 fa-brands fa-facebook"></i></a>
+                <a href=""><i class="hover:scale-105 fa-brands fa-instagram"></i></a>
+                <a href=""><i class="hover:scale-105 fa-brands fa-x-twitter"></i></a>
+                <a href=""><i class="hover:scale-105 fa-brands fa-youtube"></i></a>
+                <a href="sms:+2357432895?body=I%20want%20details"><i class="hover:scale-105 fa-solid fa-comment-sms"></i></a>
+            </div>
+
+                <div class="flex flex-col space-y-2 ">
+                    <h1 class="text-green-400 font-bold max-[870px]:text-lg max-[650px]:text-sm text-xl">EXPERIENCE BUYNEST APP ON MOBILE</h1>
+                    <main class="flex gap-5 max-lg:flex-col">
+                    <img class=" hover:scale-105 border-2 max-w-60 h-15 border-blue-400 rounded-lg" src="https://freelogopng.com/images/all_img/1664287128google-play-store-logo-png.png" alt="">
+                    <img class="hover:scale-105 max-w-60 h-15" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" alt="">
+                    </main>
+                </div>
+        </section>
+
+        <p class="text-xs mt-20 text-center text-blue-600">Copyright &copy; 2026, BuyNest Private Limited. All rights reserved!</p>
+    </footer>
+
+
+
+    <script>
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll("#carousel img");
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.add("hidden");
+                if (i === index) slide.classList.remove("hidden");
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Optional: Auto-slide every 3 seconds
+        setInterval(nextSlide, 3000);
+
+
+        //    new top rendering
+
+        // JSON
+
+        const items = [
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaS_uqR5oJUjUZ6v0PEKMgKtvd0IJ-5XdNHQ&s",
+                img2:"https://cdn.lotuselectronics.com/webpimages/647331IM.webp",
+                name: "Home Electronics",
+                photo: "https://img.freepik.com/free-vector/mobile-phone-accessories-cartoon-illustration-set-vr-glasses-3d-model-cellphones-case-charger-battery-headphones-smart-watch-memory-card-selfie-stick-technology-smartphone-concept_74855-23119.jpg?semt=ais_user_personalization&w=740&q=80",
+                discount: "45% OFF",
+                discount2: 25,
+                price: 55000,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ-_dJ_CAEbCrfBzoxOJVw-2AOp_6xDVlPlQ&s",
+                img2:"https://cdn.lotuselectronics.com/webpimages/597121IM.webp",
+                name: "Smart Gear",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtG-bQLwuZOAuGB6RsUEA9B2esU1qvvJ76Pg&s",
+                discount: "1/3",
+                discount2: 35,
+                price: 45500,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDA-gIvR3Elw2yOS6A811FHTfV87u_fvZkPQ&s",
+                img2:"https://cdn.lotuselectronics.com/webpimages/656221IM.webp",
+                name: "Tech Gadget",
+                photo: "https://m.media-amazon.com/images/I/618omOFl16L._AC_UF1000,1000_QL80_.jpg",
+                discount: "Limited Offer",
+                discount2: 24,
+                price: 66699,
+            },
+            {
+                img: "https://hips.hearstapps.com/hmg-prod/images/esq-giftsfor-tech-5320-68dc0ace765b7.jpeg?crop=1xw:0.9998333333333334xh;center,top&resize=1200:*",
+                img2:"https://cdn.lotuselectronics.com/webpimages/542111IM.webp",
+                name: "Electronic Appliance",
+                photo: "https://tiimg.tistatic.com/fp/1/007/926/slim-design-plastic-sky-blue-16-gb-screen-size-16-inch-android-mobile-phone-822.jpg",
+                discount: "1/2 OFF",
+                discount2: 44,
+                price: 56700,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbey5Y0XJZDmw_UKetRkW-8x1WgFAsl5vb2Q&s",
+                img2:"https://cdn.lotuselectronics.com/webpimages/612401IM.webp",
+                name: "Home Electronics",
+                photo: "https://assets.mspimages.in/c/tr:h-300,t-true/620391-1768550549-1.jpg",
+                discount: "Limited Offer",
+                discount2: 33,
+                price: 77200,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu2LPRcpkBMFI9Zd3p_HXsfhQOyXIf-hawfg&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhIcStTL1OSTf70OhhuqvZ6VO4c3wOKlRRCA&s",
+                name: "Smart Gear",
+                photo: "https://i0.wp.com/chinthanagsm.lk/wp-content/uploads/2026/01/1-1.jpg?resize=300%2C300&ssl=1",
+                discount: "1/3 Off",
+                discount2: 25,
+                price: 77777,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9J2pV1onXMXVcit80VlqxCnaiYllx-Daekg&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Electronic Appliance",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfCfOoKyueD887ZuW-s9dXuZoIB8-9Kd7TgQ&s",
+                discount: "⚡ Limited Offer",
+                discount2: 25,
+                price: 49999,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4lcpsgfB8hpFxQxa7upAF_9O60OQdmIcnQ&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Home Electronics",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZqitSUii8y-avUK2Ki2Tr3-zH6HzO0Ji8dA&s",
+                discount: "1/3 Off",
+                discount2: 25,
+                price: 53777,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7EizxPdiBwiVY57huNKqy0bHBLiXsCuiNQw&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXvdoKlP16-4PuhF415phPpbUwtziF4wi96Q&s",
+                name: "Electronic Appliance",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDtMX_TjMiABsc2i7SFZl_kfzG2sV5S-M7bQ&s",
+                discount: "⚡ Limited Offer",
+                discount2: 25,
+                price: 67000,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUpTj2XTCmBTaXhyozoAUkYJ-phii5M6QDAA&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Gadget",
+                photo: "https://cdn.prod.website-files.com/666b0581f1b06bff8b48beb2/67e59f8768081b84b9aab66c_AD_4nXfcliOb8pDFJNvVPK9x2halisX-cmQOJMtpZNn0y_j-_F9WqIq1P4b2lIHoTSJl70ki4kOf5tzeJWZPx5d-5y2wUHVjh5hbuIT0_a-EuIvCP629FVQRcQcyWbalM0-uy2ps-rY1.webp",
+                discount: "1/3 Off",
+                discount2: 25,
+                price: 56779,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQjYfvAflyXb3V3FGgQfDyYbWPoStEeF6uJQ&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Home Electronics",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4jlBW0F-pgk6R9crXhH8t7zZ1n9nVrYgK7Q&s",
+                discount: "1/3 Off",
+                discount2: 25,
+                price: 67000,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ0Ne9Dv1TyxqotHQWyM7w1wZewME-1jks6g&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Electronic Appliance",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE78oV2dpf8nhotyHrZ_pAqr0NJRgmdvKsxw&s",
+                discount: "⚡ Limited Offer",
+                discount2: 25,
+                price: 67540,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0K_wehJ95K9UZUgkTqrvcjfb-Rapf8NBASA&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Smart Gear",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlWY6IlbiSERYLahi3iiHR7Fod_zBep3yFoA&s",
+                discount: "1/3 Off",
+                discount2: 25,
+                price: 10000,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqsnsy4ERnFzuSFK7R3dk4EELa_7xuDSvP0A&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Home Electronics",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbXg716n2BguAzvBwi8uSq37KoMnDFPdp3A&s",
+                discount: "⚡ Limited Offer",
+                discount2: 25,
+                price: 34500,
+            },
+            {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjcuJDVKOP4IykNDrnD583H0_48toTEcxURg&s",
+                img2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo3KIdd8PXye3IfB9OakOtNduh_u76-QvfQ&s",
+                name: "Smart Gear",
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXpQ8NakbTU9pK_nRAd_48RAr4RTy-kahCHw&s",
+                discount: "1/3 Off",
+                discount2: 25,
+                price: 55000,
+            }
+        ]
+
+
+
+        const items2 = [
+            {
+                price: 45467,
+                discount: 23,
+                img: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR5jis9DwOi4TSgYiKmR9AmEM55Aj_YYLScpnFuthr9zR9iW7bDk6xKa3B3AQiKEYT2LtOE-7N3moUcHZBnu9UX8rVhNXz4WxC1ZsfmxhAjvqTlH8p-8jFcSgTJrvEkOo4jJHbHL0c&usqp=CAc"
+
+            },
+            {
+                price: 56744,
+                discount: 23,
+                img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT7wQZBhaXycbZMQz5M24aX3rn6XoC65fpGumKNjYRWC3FLSSGR7-TnOAXFESsHUouab1yUCfODuY2HWOB1bEsJXvXqJRkZ2ulLoQfzUscoYS2OZpCRSf0F-jIVEdjQAMqWG0Ltit4&usqp=CAc"
+            },
+            {
+                price: 34622,
+                discount: 23,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy_X9XYGbbRK_He3YakHqCT3B2ZwbdL6Ww2A&s"
+            },
+            {
+                price: 50078,
+                discount: 23,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM7xlriXWIVSdL1zdqWQ5Gx2qb28aizh5ghQ&s"
+            },
+            {
+                price: 25000,
+                discount: 23,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb55YAgLMB3eVY5TOZDNlofQJYN1l5x5xpNg&s"
+            }
+        ]
+
+
+        const topContainer = document.getElementById("topContainer");
+        const midContainer = document.getElementById("midContainer");
+
+        for (let i = 0; i < items.length; i++) {
+
+
+
+            topContainer.innerHTML += `
+
+        <div
+            class="w-50 hover:scale-105 mt-10 transition-transform duration-400 ease-in-out  h-50 mx-auto bg-green-100 shadow-[0_0_3px_rgba(0,0,0,0.3)] flex flex-col p-1 rounded-[5px] gap-3 flex-shrink-0">
+            <div>
+                <img src="${items[i].img}" alt=""
+                class="h-30 rounded-sm w-full "
+                >
+            </div>
+
+            <h1 class="px-1 text-sm font-bold text-pink-500">${items[i].name}</h1>
+        </div>
+            `;
+
+            midContainer.innerHTML += `
+              <div
+            class="w-70 mt-10 hover:scale-105 transition-transform duration-400 ease-in-out  h-60 bg-green-100 shadow-[0_0_3px_rgba(0,0,0,0.3)] flex flex-col p-1 rounded-[5px] gap-3 flex-shrink-0">
+
+            <div>
+                <img src="${items[i].photo}"
+                    alt="" class="h-45 rounded-sm w-full ">
+            </div>
+
+            <h1 class="px-1 text-sm font-bold text-pink-500">${items[i].discount}</h1>
+        </div>
+
+            `;
+        }
+
+
+        // HeroSection
+
+
+
+        const heroContainer = document.getElementById("heroContainer");
+        for (let i = 0; i < items.length; i++) {
+
+            let pr = items[i].price;
+            let disc = items[i].discount2;
+
+            let totalPrice = (pr - (pr * disc / 100)).toFixed(2);
+
+            heroContainer.innerHTML += `
+
+             <div
+            class="max-w-[280px] h-[250px] hover:scale-105 transition-transform duration-400 bg-green-100 shadow-[0_0_3px_rgba(0,0,0,0)] 
+            flex flex-col p-1 rounded-[5px] drop-shadow drop-shadow-orange-300 gap-3 flex-shrink-0">
+            <div>
+                <img src="${items[i].img2}"
+                    alt="" class="h-50 rounded-sm w-full ">
+            </div>
+
+            <div class="flex gap-2">
+                <p class="text-green-600 line-through">₹${pr}</p>
+                <p class="text-pink-400">₹${totalPrice}</p>
+                <p class="ml-10 text-yellow-400">discount:${disc}%</p>
+            </div>
+        </div>
+
+            `;
+        }
+
+
+        function OpenClose() {
+            const sidebar = document.getElementById("sidebar");
+
+            sidebar.classList.toggle("left-2")
+        }
+
+
+
+        //   next Macbook
+
+        const macBook = document.getElementById("macBook");
+        const footerContainer = document.getElementById("footerContainer");
+
+        for (let i = 0; i < items2.length; i++) {
+
+
+            let rate = items2[i].price;
+            let offer = items2[i].discount;
+
+            let overall = rate - (rate * offer / 100)
+
+            macBook.innerHTML += `
+            
+               <main class="w-50 p-2 bg-sky-100 rounded-lg">
+                <div class="w-full bg-gray-400 overflow-hidden">
+                    <img class="hover:scale-110 transform duration-500 ease-in-out"
+                     src="${items2[i].img}" alt="">
+                </div>
+
+                <h1 class="mx-2 font-bold">Apply 2025 MacBook Pro Laptop with M5 chip,...</h1>
+
+                <div class="flex p-3 gap-3">
+                    <p class="text-[#373737] line-through">₹${rate}</p>
+                    <p class="text-yellow-500 font-semibold">₹${overall}</p>
+                </div>
+
+                </main>
+            `;
+
+
+
+            footerContainer.innerHTML += `
+
+                 <div
+            class="w-70 mt-10 relative border border-slate-200 transition-transform duration-400 ease-in-out  bg-green-100 shadow-[0_0_1px_rgba(0,0,0,0.3)] flex flex-col p-1 rounded-[7px] gap-3 flex-shrink-0">
+
+              ${rate > 20000 ? `<div class="absolute top-2 h-10 w-10 right-5 ">
+                  <img class="rounded-full w-full" src="https://storage.needpix.com/rsynced_images/icon-1968248_1280.png" alt="" >
+                </div>`: ""}
+
+            <div class="pt-10 px-5">
+                <img src="https://media-assets.hyperinvento.com/companies/c31a99fe-fc32-4275-a453-18c2131fef39/products/5c85f197-8612-44be-ba0a-d4df4d2155d1/featureds/images/4eb5199fd9524e78953b9cdf512bb9e6-product-featured-lg.jpg" alt="" 
+                class="h-45 border-slate-300 rounded-[4px] w-full ">
+            </div>
+
+            <h1 class="px-1 text-sm font-bold text-pink-500">Apple iPhone 16 128 GB, Pink</h1>
+            <div class="flex gap-2 items-center">
+                <p class="text-lg">₹${overall}</p>
+                <p class="text-xs text-green-500">${offer}% OFF</p>
+            </div>
+
+            <h1 class="text-lg text-pink-400">MRP <span class="line-through">₹${rate}</span></h1>
+
+        </div>
+                `;
+        }
+
+    </script>
+
+</body>
+
+</html>

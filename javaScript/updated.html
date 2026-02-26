@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+ 
+  <button onclick="OpenClose()" class="bg-red-400 h-10 w-10 rounded-full">
+
+  </button>
+
+  <aside id="side" class="-translate-x-32 fixed left-3 bg-blue-800 w-30 h-70">Probable</aside>
+
+
+       
+
+  
+<!-- 
+        <section id="content" class="
+        max-w-md mx-auto min-h-1/2
+       mt-7 
+        "
+        
+        >
+
+          <div class="border rounded-[10px] py-2 px-2 bg-gray-400 my-2 w-60 h-100 break-words
+          ">
+            
+          <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTJ1tGltp04gh1cjXfSZL3wTuIQnTW-9AcRg&s" alt="${arr[i].name}"
+          class="w-full rounded-[10px] mb-3 h-40 object-cover" />
+          <section class="grid">
+            <h1 class="text-xl font-bold text-center">All in one piece of cardd</h1>
+            <h1>branded new prducts</h1>
+            <h1 class="">${arr[i].mrpInput}</h1>
+            <h1>${arr[i].discountInput}</h1>
+            <h1>${arr[i].ratingInput}</h1>
+            <h1>${arr[i].countryInput}</h1>
+            <h1>${arr[i].variants[0].colorName}</h1>
+            <h1>${arr[i].variants[0].availableStock}</h1>
+            <h1>${arr[i].variants[1].colorName}</h1>
+            <h2>${arr[i].variants[1].availableStock}</h2>
+            <p class="break-words">${arr[i].descriptionInput}</p>
+
+            </section>
+        </div>
+        </section>
+
+
+
+         <div class="shadow-md shadow-slate-300
+          mt-30 rounded-[6px] py-2 px-2 bg-gray-400
+          my-2 w-60 break-words
+          ">
+
+          <div class="shadow-sm shadow-green-400 overflow-hidden w-full rounded-lg">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTJ1tGltp04gh1cjXfSZL3wTuIQnTW-9AcRg&s" alt=""
+          class="hover:scale-110 w-full h-40 rounded-[5px]"
+          >
+          </div>
+
+          <div class="mt-5 flex flex-col ">
+            <h1 class="text-2xl font-bold text-center drop-shadow drop-shadow-[#eabc3a]  text-orange-700">Product title is here</h1>
+            <h1 class="font-semibold">Category</h1>
+            <h1 class="text-sm">product 234Mrp</h1>
+            <div class="flex gap-5">
+            <h1>Disount input</h1>
+            <h1>ratingINpt</h1>
+            </div>
+            <h1>country input</h1>
+
+            <div class="flex gap-5 text-lg font-serif mt-2">
+            <h1>variant colr</h1>
+            <h1>variants </h1>
+            </div>
+
+           <div class="flex gap-5 text-lg font-serif mb-2">
+            <h1>variatn  </h1>
+            <h1>colors </h1>
+            </div>
+            <h1 class="bg-pink-300 p-3 rounded-lg w-full ">desciption</h1>
+            </div>
+
+            </div> -->
+
+            <script>
+
+              function OpenClose() {
+            const sidebar = document.getElementById("side")
+
+            side.classList.toggle("left-60")
+        }
+
+
+
+
+
+        <div class="relative w-full max-w-4xl mx-auto">
+  <!-- Images -->
+  <div id="carousel" class="overflow-hidden relative rounded-lg">
+    <img src="https://via.placeholder.com/800x300/ff7f7f/fff?text=Slide+1" class="w-full h-64 object-cover">
+    <img src="https://via.placeholder.com/800x300/7f7fff/fff?text=Slide+2" class="w-full h-64 object-cover hidden">
+    <img src="https://via.placeholder.com/800x300/7fff7f/fff?text=Slide+3" class="w-full h-64 object-cover hidden">
+  </div>
+
+  <!-- Buttons -->
+  <button onclick="prevSlide()" class="absolute top-1/2 left-2 -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded">◀</button>
+  <button onclick="nextSlide()" class="absolute top-1/2 right-2 -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded">▶</button>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll("#carousel img");
+
+function showSlide(index){
+    slides.forEach((slide,i)=>{
+        slide.classList.add("hidden");
+        if(i === index) slide.classList.remove("hidden");
+    });
+}
+
+function nextSlide(){
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide(){
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Optional: Auto-slide every 3 seconds
+setInterval(nextSlide, 3000);
+</script>
+            </script>
+
+</body>
+
+</html>

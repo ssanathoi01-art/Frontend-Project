@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product SPA</title>
+  <style>
+    body { font-family: Arial; background:#eee; padding:20px; }
+
+    nav button {
+      margin-right:10px;
+      padding:8px 15px;
+      cursor:pointer;
+    }
+
+    .card {
+      background:#fff;
+      padding:15px;
+      margin:10px 0;
+      border-radius:6px;
+    }
+
+    input { width:100%; padding:8px; margin-bottom:10px; }
+
+    img { max-width:100px; display:block; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <button onclick="navigate('upload')">Upload</button>
+  <button onclick="navigate('list')">Products</button>
+</nav>
+
+<div id="app"></div>
+
+<script>
+
+    const app = document.getElementById("app");
+
+let products = [];
+
+const routes = {
+
+  upload: `
+    <div class="card">
+      <h2>Upload Product</h2>
+
+      <input type="text" id="name" placeholder="Product Name">
+      <input type="number" id="price" placeholder="Price">
+      <input type="file" id="image">
+      <p id="fileName">No file chosen</p>
+
+      <button id="uploadBtn">Upload</button>
+      <p id="message"></p>
+    </div>
+  `,
+
+  list: `
+    <div>
+      <h2>Product List</h2>
+      <div id="productContainer"></div>
+    </div>
+  `,
+
+  view: `
+    <div id="viewContainer"></div>
+  `
+};
+
+function navigate(page, id=null){
+  app.innerHTML = routes[page];
+
+  if(page === "upload") initUpload();
+  if(page === "list") renderProducts();
+  if(page === "view") renderView(id);
+}
+
+
+
+
+
+
+/* ---------------- UPLOAD PAGE ---------------- */
+
+function initUpload(){
+
+  const imageInput = document.getElementById("image");
+  const fileName = document.getElementById("fileName");
+  const uploadBtn = document.getElementById("uploadBtn");
+  const message = document.getElementById("message");
+
+  imageInput.addEventListener("change", function(){
+    fileName.textContent = this.files.length
+      ? this.files[0].name
+      : "No file chosen";
+  });
+
+  uploadBtn.addEventListener("click", function(){
+
+    const name = document.getElementById("name").value.trim();
+    const price = document.getElementById("price").value.trim();
+    const file = imageInput.files[0];
+
+    if(!name || !price || !file){
+      message.textContent = "Fill all fields!";
+      message.style.color = "red";
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+      const product = {
+        id: Date.now(),
+        name,
+        price,
+        image: e.target.result
+      };
+
+      products.push(product);
+      message.textContent = "Product Uploaded!";
+      message.style.color = "green";
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
+
+
+
+
+/* ---------------- PRODUCT LIST ---------------- */
+
+function renderProducts(){
+
+  const container = document.getElementById("productContainer");
+
+  if(products.length === 0){
+    container.innerHTML = "<p>No products available</p>";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  products.forEach(product => {
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <h3>${product.name}</h3>
+      <p>Price: $${product.price}</p>
+      <img src="${product.image}">
+      <button data-id="${product.id}">View</button>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // View button listener
+  container.addEventListener("click", function(e){
+    if(e.target.tagName === "BUTTON"){
+      const id = Number(e.target.getAttribute("data-id"));
+      navigate("view", id);
+    }
+  });
+}
+
+
+
+
+
+/* ---------------- PRODUCT VIEW ---------------- */
+
+function renderView(id){
+
+  const product = products.find(p => p.id === id);
+  const container = document.getElementById("viewContainer");
+
+  if(!product){
+    container.innerHTML = "<p>Product not found</p>";
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="card">
+      <h2>${product.name}</h2>
+      <p>Price: $${product.price}</p>
+      <img src="${product.image}">
+      <br>
+      <button onclick="navigate('list')">Back</button>
+    </div>
+  `;
+}
+
+
+
+
+
+
+// Load default page
+navigate("upload");
+</script>
+</body>
+</html>
