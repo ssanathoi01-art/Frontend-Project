@@ -15,10 +15,10 @@
     <nav class="flex py-4 px-3 justify-evenly sticky top-0 z-20 items-center
      bg-gradient-to-br from-[#544f4f] via-[#0f1111] to-[#b2b2d5] text-white">
       
-        <a href="Shopping.html" class="font-semibold  text-3xl hover:underlinen hover:underline decoration-[#373737]">HOME</a>
+        <a href="Shopping.html" class="font-semibold  text-3xl max-sm:text-xl hover:underlinen hover:underline decoration-[#373737]">HOME</a>
 
         <div class="hidden max-[350px]:block hover:scale-110"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
-        <button class="font-semibold max-[350px]:hidden text-2xl hover:underline mx-10 decoration-[#373737]"
+        <button class="font-semibold max-[350px]:hidden text-2xl max-sm:text-lg hover:underline mx-10 decoration-[#373737]"
             onclick="loggedIn('login')">Login</button>
        
         <div class="max-md:hidden flex justify-between w-full ">
@@ -30,20 +30,20 @@
 
         </div>
 
-        <div onclick="OpenClose()" class="text-xl cursor-pointer max-md:block hidden p-2">
+        <div onclick="OpenClose()" class="text-xl max-sm:text-lg text-center cursor-pointer max-md:block hidden p-2">
            🏬 Sellers
         </div>
         
 
-        <aside id="sidebar" class="text-white bg-orange-400 w-40 h-60 grid fixed top-14
-           -left-60
+        <aside id="sidebar" class="text-white bg-orange-400 h-60 grid fixed top-14
+           -left-60 px-2
           rounded-lg  duration-300 ease-in-out">
 
          <button class="font-semibold text-2xl hover:cursor-pointer hover:underlinen hover:underline decoration-[#373737]"
             onclick="navigate('upload')">Upload</button>
         <button class="font-semibold text-2xl hover:cursor-pointer  hover:underline  decoration-[#373737]"
             onclick="navigate('list')">Products</button>
-        <button class="hover:cursor-pointer text-xl font-bold" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket rotate-180 mr-6 hover:scale-105 text-green-400"></i>  Logout</button>
+        <button class="hover:cursor-pointer text-xl font-bold" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket rotate-180 mr-3 hover:scale-105 text-green-400"></i>  Logout</button>
 
         </aside>
         
