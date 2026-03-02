@@ -11,6 +11,10 @@
 
 <body class="bg-gray-200">
 
+     <div id="overlay"
+        class="fixed inset-0 bg-black/40 hidden z-10
+        transition-opacity duration-500 ">
+    </div>
 
     <nav class="flex py-4 px-3 justify-evenly sticky top-0 z-20 items-center
      bg-gradient-to-br from-[#544f4f] via-[#0f1111] to-[#b2b2d5] text-white">
@@ -466,10 +470,12 @@
 
         //toggle//
 
-        function OpenClose() {
             const sidebar = document.getElementById("sidebar")
+            const overlay = document.getElementById("overlay")
+        function OpenClose() {
 
             sidebar.classList.toggle("left-2")
+            overlay.classList.toggle("hidden")
         }
 
 
