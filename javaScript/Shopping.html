@@ -10,6 +10,12 @@
 
 <body>
 
+      <!-- Overlay (ADD HERE 👇) -->
+    <div id="overlay"
+        class="fixed inset-0 bg-black/40 hidden z-10
+        transition-opacity duration-500 ">
+    </div>
+
 
     <nav class="flex py-4 px-3 justify-evenly sticky top-0 z-20 items-center
      bg-gradient-to-br from-[#544f4f] via-[#0f1111] to-[#b2b2d5] text-white">
@@ -48,7 +54,10 @@
         <aside id="sidebar" class="h-screen bg-[#373737]
         grid px-2 py-4 
         transition-all duration-700 top-0 ease-in-out
-        fixed z-20 -left-60">
+        fixed z-20 -translate-x-full left-0">
+             <div class="text-right hover:bg-gray-200 rounded-lg p-3 cursor-pointer">
+        <i onclick="OpenClose()" class="  text-2xl text-orange-500 fa-solid fa-x"></i>
+        </div>
             <a class="hover:underline" href="#">About</a>
             <a class="hover:underline" href="#">Contact</a>
             <a class="hover:underline" href="productPage.html">🛒 Cart</a>
@@ -696,10 +705,11 @@
         }
 
 
-        function OpenClose() {
             const sidebar = document.getElementById("sidebar");
-
-            sidebar.classList.toggle("left-2")
+            const overlay = document.getElementById("overlay");
+            function OpenClose() {
+            sidebar.classList.toggle("-translate-x-full")
+            overlay.classList.toggle("hidden")
         }
 
 
