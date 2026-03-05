@@ -428,8 +428,11 @@
       <div class="border border-green-400 rounded-lg  bg-gray-200 p-10 mt-7 flex max-w-80 mx-auto flex-col">
             <h1 class="hover:underline text-center text-3xl font-bold mb-10" >Login Page</h1>
             <input class="text-lg font-semibold bg-blue-200 rounded-full pl-3 hover:bg-transparent border border-blue-500"  type="text" id="username" placeholder="Username"><br><br>
-            <input class="text-lg font-semibold bg-blue-200 rounded-full pl-3 hover:bg-transparent border border-blue-500  type="password" id="password" placeholder="Password"><br><br>
 
+            <div class="relative flex items-center "
+            <input id="inp" class="text-lg font-semibold bg-blue-200 rounded-full pl-3 hover:bg-transparent border border-blue-500  type="password" id="password" placeholder="Password"><br><br>
+            <i id="eye" class="fa-solid fa-eye absoute right-2"></i>
+            </div>
             <div class="flex justify-center ">
             <button class="cursor-pointer hover:bg-blue-400 py-2 active:bg-orange-400 text-white bg-pink-400 w-20 rounded-lg " onclick="login()">Login</button>
             </div>
@@ -439,6 +442,22 @@
         `;
             }
         }
+
+
+        // this is eye show and hide of password
+        
+            const inp = document.getElementById("inp");
+    const eye = document.getElementById("eye");
+
+         eye.addEventListener("click", function () {
+       if (inp.type === "password") {
+         inp.type = "text";
+       eye.classList.replace("fa-eye","fa-eye-slash");
+       } else {
+        inp.type = "password";
+         eye.classList.replace("fa-eye-slash","fa-eye");
+       }
+     });
 
 
         //   onclick function for login    //
